@@ -120,7 +120,9 @@
     color: white;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
+  }
+  .load-more-button:hover {
+    background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);  
   }
   </style>
   

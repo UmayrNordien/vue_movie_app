@@ -104,7 +104,7 @@
   
   .login-form button {
     padding: 8px 16px;
-    background-color: #007bff;
+    background: linear-gradient(to right, #845EC2, #2C73D2, #0081CF, #0089BA, #008E9B, #008F7A);
     color: white;
     border: none;
     border-radius: 4px;
@@ -112,7 +112,7 @@
   }
   
   .login-form button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);  
   }
   
   body {

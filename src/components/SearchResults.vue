@@ -12,6 +12,9 @@
         </div>
       </div>
     </div>
+    <div class="content-container2">
+
+    </div>
   </template>
     
   <script>
@@ -65,8 +68,11 @@
   <style scoped>
   .content-container {
     padding-top: 5px;
-    /* Add padding to create space between NavBar and content */
     background-color: #845EC2;
+  }
+  .content-container2 {
+    padding-bottom: 10px;
+    background-color: #F9F871;
   }
   
   .bg {
