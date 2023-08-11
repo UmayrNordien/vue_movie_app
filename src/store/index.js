@@ -1,14 +1,20 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-  },
-  getters: {
+    sessionID: localStorage.getItem('sessionID') || null,
   },
   mutations: {
+    updateSessionID(state, sessionID) {
+      state.sessionID = sessionID;
+    },
   },
   actions: {
+    updateSessionID({ commit }, sessionID) {
+      commit('updateSessionID', sessionID);         //store.dispatch('updateSessionID', sessionID);
+    },
   },
-  modules: {
-  }
-})
+  getters: {
+    isLoggedIn: state => !!state.sessionID,
+  },
+});
