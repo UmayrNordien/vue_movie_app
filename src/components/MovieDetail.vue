@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import LoginNavBar from '@/components/LoginNavBar.vue';
 
 export default {
@@ -41,25 +40,26 @@ export default {
   data() {
     return {
       movie: {},
-      userRating: 1,
+      userRating: 5,
+      guestSessionID: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds', // Replace with your actual bearer token
     };
   },
   async created() {
     try {
       const movieId = this.$route.params.id;
-      const sessionID = this.$store.getters.getSessionID;
 
-      const response = await axios.get(
+      const response = await fetch(
         `https://api.themoviedb.org/3/movie/${movieId}`,
         {
-          params: {
-            api_key: '9b20927a47ae51d08b26f61dab9b2ce4',
-            session_id: sessionID,
+          headers: {
+            accept: 'application/json',
+            Authorization: this.guestSessionID,
           },
         }
       );
 
-      this.movie = response.data;
+      const movieData = await response.json();
+      this.movie = movieData;
     } catch (error) {
       console.error('Error fetching movie details:', error);
     }
@@ -74,24 +74,26 @@ export default {
     async rateMovie() {
       try {
         const movieId = this.$route.params.id;
-        const guestSessionID = 'YOUR_GUEST_SESSION_ID'; // Replace with actual guest session ID
 
-        const response = await axios.post(
+        const response = await fetch(
           `https://api.themoviedb.org/3/movie/${movieId}/rating`,
-          { value: this.userRating },
           {
-            params: {
-              api_key: '9b20927a47ae51d08b26f61dab9b2ce4',
-              guest_session_id: guestSessionID,
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              accept: 'application/json',
+              Authorization: this.guestSessionID,
             },
+            body: JSON.stringify({ value: this.userRating }),
           }
         );
 
+        const responseData = await response.json();
+
         if (response.status === 201) {
           console.log('Movie rated successfully');
-          // Update the movie's average rating and userRating data
-          this.movie.vote_average = response.data.rating;
-          this.userRating = response.data.value;
+          this.movie.vote_average = responseData.rating;
+          this.userRating = responseData.value;
         } else {
           console.error('Failed to rate the movie');
         }
