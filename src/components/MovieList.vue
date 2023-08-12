@@ -1,7 +1,6 @@
 <template>
   <div class="bg">
     <NavBar />
-    <!-- Display the TrendingMoviesCarousel component -->
     <TrendingMovies />
 
     <div class="movie-list mt-5">

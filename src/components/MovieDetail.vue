@@ -1,29 +1,31 @@
 <template>
-  <LoginNavBar />
-  <div class="movie-details mt-5">
-    <div class="movie-content">
-      <div class="movie-poster">
-        <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster" />
-      </div>
-      <div class="movie-info">
-        <div class="movie-title">{{ movie.title }}</div>
-        <div class="movie-description">{{ movie.overview }}</div>
+  <div>
+    <LoginNavBar/>
+    <div class="movie-details mt-5">
+      <div class="movie-content">
+        <div class="movie-poster">
+          <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster" />
+        </div>
+        <div class="movie-info">
+          <div class="movie-title">{{ movie.title }}</div>
+          <div class="movie-description">{{ movie.overview }}</div>
 
-        <div class="reviews">
-          <h2>Reviews</h2>
-          <ul>
-            <li v-for="review in reviews" :key="review.id">
-              <div class="review-author">{{ review.author }}</div>
-              <div class="review-content">{{ review.content }}</div>
-            </li>
-          </ul>
-      </div>
+          <div class="reviews">
+            <h2>Reviews</h2>
+            <ul>
+              <li v-for="review in reviews" :key="review.id">
+                <div class="review-author">{{ review.author }}</div>
+                <div class="review-content">{{ review.content }}</div>
+              </li>
+            </ul>
+          </div>
 
-        <div class="movie-rating">Rating: {{ movie.vote_average }} / 10</div>
-        <div class="user-rating">
-          <label for="rating">Your Rating:</label>
-          <input v-model="userRating" type="number" min="1" max="10" id="rating" />
-          <button @click="rateMovie">Rate</button>
+          <div class="movie-rating">Rating: {{ movie.vote_average }} / 10</div>
+          <div class="user-rating">
+            <label for="rating">Your Rating:</label>
+            <input v-model="userRating" type="number" min="1" max="10" id="rating" />
+            <button @click="rateMovie">Rate</button>
+          </div>
         </div>
       </div>
     </div>
@@ -35,13 +37,13 @@ import LoginNavBar from '@/components/LoginNavBar.vue';
 
 export default {
   components: {
-    LoginNavBar,
+    LoginNavBar
   },
   data() {
     return {
       movie: {},
-      userRating: 5,
-      guestSessionID: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds', // Replace with your actual bearer token
+      userRating: 7,
+      reviews: []
     };
   },
   async created() {
@@ -53,8 +55,9 @@ export default {
         {
           headers: {
             accept: 'application/json',
-            Authorization: this.guestSessionID,
-          },
+             // Authorization: `Bearer ${this.$store.getters.getSessionID}`, //not working
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds'
+          }
         }
       );
 
@@ -69,7 +72,7 @@ export default {
       if (posterPath) {
         return `https://image.tmdb.org/t/p/w500${posterPath}`;
       }
-      return 'path/to/default-poster.png'; // Use a default image if poster path is not available
+      return 'https://via.placeholder.com/500x750.png?text=loading';
     },
     async rateMovie() {
       try {
@@ -80,30 +83,34 @@ export default {
           {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
               accept: 'application/json',
-              Authorization: this.guestSessionID,
+              'Content-Type': 'application/json;charset=utf-8',
+               // Authorization: `Bearer ${this.$store.getters.getSessionID}`, // not working
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds'
             },
-            body: JSON.stringify({ value: this.userRating }),
+            body: JSON.stringify({ value: this.userRating })
           }
         );
 
         const responseData = await response.json();
+        console.log('Response status:', response.status);
+        console.log('Response data:', responseData);
 
         if (response.status === 201) {
           console.log('Movie rated successfully');
           this.movie.vote_average = responseData.rating;
           this.userRating = responseData.value;
         } else {
-          console.error('Failed to rate the movie');
+          console.error('Movie rating error');
         }
       } catch (error) {
         console.error('Error rating movie:', error);
       }
-    },
-  },
+    }
+  }
 };
 </script>
+
 
 <style scoped>
 .movie-details {

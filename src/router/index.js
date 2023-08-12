@@ -5,7 +5,7 @@ import MovieDetailView from '@/views/MovieDetailView.vue';
 import SearchResultsView from '@/views/SearchResultsView.vue'; // Adjust the import path
 import AuthCallbackView from '@/views/AuthCallbackView.vue';
 // For Route Guard 
-// import store from '@/store';
+import store from '@/store';
 
 const routes = [
   {
@@ -43,16 +43,15 @@ const router = createRouter({
   routes,
 });
 
-// Route guard to check if the user is authenticated before accessing a route
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.requiresAuth && !store.getters.isLoggedIn) {
-//     // Redirect to the login page if the user is not authenticated
-//     next('/');
-//   } else {
-//     // Proceed to the next route
-//     next();
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth && !store.getters.isLoggedIn) {
+    // Redirect to the login page if the user is not authenticated
+    next('/');
+  } else {
+    // Proceed to the next route
+    next();
+  }
+});
 
 export default router;
 
