@@ -1,3 +1,4 @@
+// ref source: https://www.youtube.com/watch?v=nFh7-HfODYY (vuex store)
 import { createStore } from 'vuex';
 
 export default createStore({

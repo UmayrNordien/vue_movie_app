@@ -34,7 +34,7 @@
 
 <script>
 import LoginNavBar from '@/components/LoginNavBar.vue';
-
+// ref source: https://www.youtube.com/watch?v=mrJ-mK8shYQ (error handling)
 export default {
   components: {
     LoginNavBar

@@ -91,8 +91,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin: 0 10px;
-  /* Equal padding on the sides */
+  margin: 0 10px;   /* Equal padding on the sides */
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }

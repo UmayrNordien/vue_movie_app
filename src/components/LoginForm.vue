@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// ref source: https://www.youtube.com/watch?v=6LyagkoRWYA (axios crash course)
 import axios from 'axios';
 import { ref } from 'vue';
 import { useStore } from 'vuex';

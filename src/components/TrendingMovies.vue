@@ -73,6 +73,7 @@ export default {
 </script>
 
 <style scoped>
+/* ref source: https://www.youtube.com/watch?v=gBvEmGI-DnE */
 .movie-carousel {
   max-width: 100%;
   margin: 0 auto;
