@@ -33,8 +33,8 @@ export default {
           'https://api.themoviedb.org/3/authentication/token/new',
           {
             params: {
-              api_key: '9b20927a47ae51d08b26f61dab9b2ce4', 
-          }
+              api_key: '9b20927a47ae51d08b26f61dab9b2ce4',
+            }
           },
         );
         const requestToken = requestTokenResponse.data.request_token;
@@ -49,7 +49,7 @@ export default {
           },
           {
             params: {
-              api_key: '9b20927a47ae51d08b26f61dab9b2ce4', 
+              api_key: '9b20927a47ae51d08b26f61dab9b2ce4',
             },
           }
         );
@@ -83,51 +83,64 @@ export default {
 </script>
 
 
-  <style scoped>
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0 auto;
-    max-width: 300px;
-  }
-  
-  .login-form label {
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  .login-form input {
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  .login-form button {
-    padding: 8px 16px;
-    background: linear-gradient(to right, #845EC2, #2C73D2, #0081CF, #0089BA, #008E9B, #008F7A);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .login-form button:hover {
-    background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);  
-  }
-  
-  body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  </style>
+<style scoped>
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.login-form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 8px;
+  margin-bottom: 16px;
+  box-shadow: inset 5px 4px 9px 2px rgba(51, 51, 51, 0.192);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+}
+.login-form input {
+  padding: 8px;
+  margin-bottom: 16px;
+  box-shadow: inset 5px 4px 9px 2px rgba(51, 51, 51, 0.192);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+}
+.login-form input:focus{
+  border: none;
+  outline: none
+}
+
+.login-form button {
+  padding: 8px 16px;
+  background: linear-gradient(to right, #845EC2, #2C73D2, #0081CF, #0089BA, #008E9B, #008F7A);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+</style>
   
   

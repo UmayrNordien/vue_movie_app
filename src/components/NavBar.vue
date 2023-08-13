@@ -27,7 +27,7 @@
           v-model="searchQuery"
           class="form-control me-2"
           type="search"
-          placeholder="Search movies..."
+          placeholder="Search for movies..."
           aria-label="Search"
         />
         <button class="btn btn-outline-light" type="submit">Search</button>
@@ -71,5 +71,9 @@
   }
   .logo:hover{
     color: #e7e7e7 !important;
+  }
+
+  input{
+    box-shadow: inset 5px 4px 9px 2px rgba(51, 51, 51, 0.192);
   }
   </style>

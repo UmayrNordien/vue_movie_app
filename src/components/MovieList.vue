@@ -15,26 +15,25 @@
     </div>
 
     <!-- Load More button -->
-    <button @click="loadMoreMovies" class="load-more-button mb-2 me-2"><i class='bx bx-loader bx-tada'></i> load
-      more</button>
-    <button class="load-more-button" id="reloadButton">1st results</button>
+    <button @click="loadMoreMovies" class="load-more-button mb-2 me-2"><i class='bx bx-loader bx-tada'></i> More</button>
+    <button class="load-more-button" id="reloadButton">Top Results</button>
   </div>
 </template>
   
 <script>
 import axios from 'axios';
-import NavBar from '@/components/NavBar.vue'; // Import the TrendingMoviesCarousel component
-import TrendingMovies from '@/components/TrendingMovies.vue'; // Import the TrendingMoviesCarousel component
+import NavBar from '@/components/NavBar.vue'; 
+import TrendingMovies from '@/components/TrendingMovies.vue'; 
 
 export default {
   components: {
     NavBar,
-    TrendingMovies // Register the TrendingMoviesCarousel component
+    TrendingMovies 
   },
   data() {
     return {
       movies: [],
-      page: 1, // Added page variable
+      page: 1, // page variable
     };
   },
   async created() {
@@ -104,9 +103,18 @@ export default {
 
 .movie-poster img {
   width: 100%;
-  max-height: 300px;
+  max-height: 100%; 
   object-fit: cover;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    margin: 0 5px;
+  }
+  .movie-list {
+    gap: 10px; 
+  }
 }
 
 .movie-title {
@@ -126,5 +134,6 @@ export default {
 
 .load-more-button:hover {
   background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);
-}</style>
+}
+</style>
   

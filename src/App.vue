@@ -9,6 +9,8 @@
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap');
 /* colors used - https://mycolor.space/?hex=%23845EC2&sub=1 */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -22,6 +24,7 @@
 /* unvisited link */
 
 a{
+  font-family: "Poppins", sans-serif;
   text-decoration: none !important;
   font-weight: bold;
   text-transform: uppercase;

@@ -100,10 +100,11 @@ export default {
 
 .movie-poster img {
   width: 100%;
-  max-height: 300px;
+  max-height: 70vh;
   object-fit: cover;
   border-radius: 8px;
 }
+
 
 .movie-title {
   margin-top: 10px;

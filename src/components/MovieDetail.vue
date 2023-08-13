@@ -22,7 +22,7 @@
 
           <div class="movie-rating">Rating: {{ movie.vote_average }} / 10</div>
           <div class="user-rating">
-            <label for="rating">Your Rating:</label>
+            <label for="rating"><h2 class="my-rating">My Rating</h2></label>
             <input v-model="userRating" type="number" min="1" max="10" id="rating" />
             <button @click="rateMovie">Rate</button>
           </div>
@@ -149,10 +149,15 @@ export default {
   margin-bottom: 10px;
 }
 
+.my-rating{
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .user-rating {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   margin-top: 20px;
 }
 

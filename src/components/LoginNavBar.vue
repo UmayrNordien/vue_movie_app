@@ -51,4 +51,8 @@
 .logo:hover{
   color: #e7e7e7 !important;
 }
+
+input{
+  box-shadow: inset 5px 4px 9px 2px rgba(51, 51, 51, 0.192);
+}
   </style>
