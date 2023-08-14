@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
     <form @submit.prevent="login" class="login-form">
-      <p>Enter Credentials to proceed to Movies Dashbaord</p>
+      <p>Enter Credentials to proceed to Movies Dashboard</p>
       <label for="username">Username:</label>
       <input v-model="username" type="text" id="username" />
 
@@ -130,7 +130,7 @@ export default {
 }
 
 p{
-  color: #3535357a;
+  color: #35353577;
 }
 
 .login-form button {
