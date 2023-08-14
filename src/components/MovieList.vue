@@ -80,7 +80,16 @@ export default {
 body{
   background-color: #F9F871;
 }
-.bg {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.bg{
   background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
 }
 

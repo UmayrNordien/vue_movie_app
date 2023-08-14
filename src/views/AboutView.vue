@@ -71,9 +71,11 @@
   </script>
   
   <style scoped>
-  .bg{
+  .bg {
     height: 100vh;
-    background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871) !important;
   }
   .about-view {
     padding: 20px;
@@ -85,7 +87,9 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
-  
+  .container{
+    margin-top: 10vh;
+  }
   .features-container {
     margin-top: 10vh;
     justify-content: center;
@@ -116,5 +120,26 @@
     font-size: 16px;
     margin-bottom: 5px;
   }
+
+  @media (max-width: 768px) {
+  .about-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  .bg {
+    height: 100vh;
+  }
+
+  .features-container {
+    margin-top: 5vh;
+    gap: 0px;
+  }
+
+  .item {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
   </style>
   
