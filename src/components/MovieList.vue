@@ -28,7 +28,7 @@ import TrendingMovies from '@/components/TrendingMovies.vue';
 export default {
   components: {
     NavBar,
-    TrendingMovies 
+    TrendingMovies ,
   },
   data() {
     return {
@@ -77,6 +77,9 @@ export default {
 </script>
   
 <style scoped>
+body{
+  background-color: #F9F871;
+}
 .bg {
   background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
 }

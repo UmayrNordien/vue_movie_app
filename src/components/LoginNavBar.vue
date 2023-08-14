@@ -16,10 +16,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link class="nav-link" to="/">Login</router-link>
+              <router-link class="nav-link" to="/"><i class='bx bxs-key' ></i> Login</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/dashboard">My Movies</router-link>
+              <router-link class="nav-link" to="/dashboard"><i class='bx bx-movie' ></i> My Movies</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/about"><i class='bx bx-info-circle'></i> About</router-link>
             </li>
           </ul>
         </div>

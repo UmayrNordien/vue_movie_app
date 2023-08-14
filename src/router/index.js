@@ -4,6 +4,7 @@ import MovieListView from '@/views/MovieListView.vue';
 import MovieDetailView from '@/views/MovieDetailView.vue';
 import SearchResultsView from '@/views/SearchResultsView.vue'; // Adjust the import path
 import AuthCallbackView from '@/views/AuthCallbackView.vue';
+import AboutView from '@/views/AboutView';
 // For Route Guard 
 import store from '@/store';
 
@@ -20,13 +21,13 @@ const routes = [
     meta: { requiresAuth: true }, // Add a meta field for route guard
   },
   {
-    path: '/movie/:id',
+    path: '/movie/:id', // parameter for movie id
     name: 'MovieDetail',
     component: MovieDetailView,
     props: true,
   },
   {
-    path: '/search-results/:query', // Dynamic parameter for the query
+    path: '/search-results/:query', // parameter for the query
     name: 'SearchResultsView',
     component: SearchResultsView,
     props: true, // Pass route params as props to the component
@@ -35,6 +36,11 @@ const routes = [
     path: '/auth-callback',
     name: 'AuthCallback',
     component: AuthCallbackView,
+  },
+  {
+    path: '/about',
+    name: 'AboutView',
+    component: AboutView,
   },
 ];
 
@@ -48,7 +54,7 @@ router.beforeEach((to, from, next) => {
     // Redirect to the login page if the user is not authenticated
     next('/');
   } else {
-    // Proceed to the next route
+    // next route ./
     next();
   }
 });

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg">
     <form @submit.prevent="login" class="login-form">
       <label for="username">Username:</label>
       <input v-model="username" type="text" id="username" />
@@ -10,6 +10,7 @@
       <button type="submit">Login</button>
     </form>
   </div>
+  <FooterC/>
 </template>
 
 <script>
@@ -18,8 +19,12 @@ import axios from 'axios';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
+import FooterC from './FooterC.vue';
 
 export default {
+  components: {
+    FooterC
+  },
   setup() {
     const username = ref('');
     const password = ref('');
@@ -85,6 +90,9 @@ export default {
 
 
 <style scoped>
+.bg{
+  background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
+}
 .login-form {
   display: flex;
   flex-direction: column;

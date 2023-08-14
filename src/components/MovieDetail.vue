@@ -24,7 +24,7 @@
           <div class="user-rating">
             <label for="rating"><h2 class="my-rating">My Rating</h2></label>
             <input v-model="userRating" type="number" min="1" max="10" id="rating" />
-            <button @click="rateMovie">Rate</button>
+            <button @click="rateMovie" onClick()>Rate</button>
           </div>
         </div>
       </div>
@@ -100,6 +100,7 @@ export default {
           console.log('Movie rated successfully');
           this.movie.vote_average = responseData.rating;
           this.userRating = responseData.value;
+          alert('Movie rated successfully');
         } else {
           console.error('Movie rating error');
         }

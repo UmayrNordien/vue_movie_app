@@ -10,8 +10,8 @@
   
   export default {
     setup() {
-      const store = useStore(); // Import and use the store
-      const router = useRouter(); // Import and use the router
+      const store = useStore(); // Import the store
+      const router = useRouter(); // Import the router
   
       handleCallback();
   
@@ -31,7 +31,7 @@
             // Update the session ID in your Vuex store
             store.dispatch('updateSessionID', sessionID);
   
-            // Redirect to the dashboard or desired page after successful login
+            // Redirect to the dashboard after successful login
             router.push('/dashboard');
           } catch (error) {
             console.error('Session creation error:', error);
