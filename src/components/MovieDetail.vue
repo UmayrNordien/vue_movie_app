@@ -1,6 +1,6 @@
 <template>
+  <LoginNavBar />
   <div class="bg">
-    <LoginNavBar />
     <div class="movie-details mt-5">
       <div class="movie-content">
         <div class="movie-poster">
@@ -12,12 +12,6 @@
 
           <div class="reviews">
             <h2>Reviews:</h2>
-            <ul>
-              <li v-for="review in reviews" :key="review.id">
-                <div class="review-author">{{ review.author }}</div>
-                <div class="review-content">{{ review.content }}</div>
-              </li>
-            </ul>
           </div>
 
           <div class="movie-rating"><h6>Rating: {{ movie.vote_average }} / 10</h6></div>
@@ -116,14 +110,10 @@ export default {
 
 
 <style scoped>
-template {
+.bg {
   height: 100vh;
   margin: 0;
   padding: 0;
-}
-
-.bg {
-  height: 100vh;
   background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
 }
 
@@ -204,15 +194,6 @@ button:hover {
   font-weight: bold;
 }
 
-.review-author {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.review-content {
-  font-size: 14px;
-}
-
 @media (min-width: 768px) {
   .movie-content {
     flex-direction: row;
@@ -291,6 +272,10 @@ button:hover {
   button {
     padding: 6px 12px;
     font-size: 16px;
+  }
+
+  .bg {
+  height: 130vh;
   }
 }
 </style>
