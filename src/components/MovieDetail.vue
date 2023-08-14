@@ -275,7 +275,7 @@ button:hover {
   }
 
   .bg {
-  height: 130vh;
+  height: 135vh;
   }
 }
 </style>
