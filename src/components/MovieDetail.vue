@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <LoginNavBar/>
+  <div class="bg">
+    <LoginNavBar />
     <div class="movie-details mt-5">
       <div class="movie-content">
         <div class="movie-poster">
@@ -11,7 +11,7 @@
           <div class="movie-description">{{ movie.overview }}</div>
 
           <div class="reviews">
-            <h2>Reviews</h2>
+            <h2>Reviews:</h2>
             <ul>
               <li v-for="review in reviews" :key="review.id">
                 <div class="review-author">{{ review.author }}</div>
@@ -20,9 +20,11 @@
             </ul>
           </div>
 
-          <div class="movie-rating">Rating: {{ movie.vote_average }} / 10</div>
+          <div class="movie-rating"><h6>Rating: {{ movie.vote_average }} / 10</h6></div>
           <div class="user-rating">
-            <label for="rating"><h2 class="my-rating">My Rating</h2></label>
+            <label for="rating">
+              <h2 class="my-rating">My Rating:</h2>
+            </label>
             <input v-model="userRating" type="number" min="1" max="10" id="rating" />
             <button @click="rateMovie" onClick()>Rate</button>
           </div>
@@ -55,7 +57,7 @@ export default {
         {
           headers: {
             accept: 'application/json',
-             // Authorization: `Bearer ${this.$store.getters.getSessionID}`, //not working
+            // Authorization: `Bearer ${this.$store.getters.getSessionID}`, //not working
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds'
           }
         }
@@ -85,7 +87,7 @@ export default {
             headers: {
               accept: 'application/json',
               'Content-Type': 'application/json;charset=utf-8',
-               // Authorization: `Bearer ${this.$store.getters.getSessionID}`, // not working
+              // Authorization: `Bearer ${this.$store.getters.getSessionID}`, // not working
               Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds'
             },
             body: JSON.stringify({ value: this.userRating })
@@ -114,15 +116,18 @@ export default {
 
 
 <style scoped>
-html, body {
+template {
   height: 100vh;
   margin: 0;
   padding: 0;
 }
 
+.bg {
+  background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
+}
+
 .movie-details {
   padding: 20px;
-  background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
   height: 100vh;
 }
 
@@ -158,7 +163,7 @@ html, body {
   margin-bottom: 10px;
 }
 
-.my-rating{
+.my-rating {
   font-size: 18px;
   font-weight: bold;
 }
@@ -185,25 +190,8 @@ button {
   cursor: pointer;
 }
 
-button:hover{
-  background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);  
-}
-
-@media (min-width: 768px) {
-  .movie-content {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .movie-poster {
-    flex: 1;
-    margin-right: 20px;
-  }
-
-  .movie-info {
-    flex: 2;
-    text-align: left;
-  }
+button:hover {
+  background: linear-gradient(to right, #A998E8, #4E96E6, #00A4E3, #00ACD2, #00B1B2, #00B190);
 }
 
 .reviews {
@@ -222,5 +210,86 @@ button:hover{
 
 .review-content {
   font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .movie-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .movie-poster {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .movie-info {
+    flex: 2;
+    text-align: left;
+  }
+
+  .my-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  input[type="number"] {
+    width: 40px;
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .movie-poster {
+    max-height: 60%;
+  }
+
+  .movie-title{
+    font-size: 16px;
+  }
+
+  .movie-info {
+    font-size: 12px;
+    line-height: 1;
+    flex: 2;
+    text-align: left;
+  }
+
+  .reviews h2 {
+    font-size: 16px;
+  }
+
+  .movie-rating {
+    font-size: 12px;
+  }
+
+  .my-rating {
+    font-size: 16px;
+  }
+
+  input[type="number"] {
+    width: 40px;
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
 }
 </style>
