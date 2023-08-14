@@ -123,8 +123,8 @@ template {
 }
 
 .bg {
-  background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
   height: 100vh;
+  background: linear-gradient(to bottom, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
 }
 
 .movie-details {
