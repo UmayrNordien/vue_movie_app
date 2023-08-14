@@ -1,12 +1,12 @@
 <template>
   <div class="bg">
     <form @submit.prevent="login" class="login-form">
+      <p>Enter Credentials to proceed to Movies Dashbaord</p>
       <label for="username">Username:</label>
       <input v-model="username" type="text" id="username" />
 
       <label for="password">Password:</label>
       <input v-model="password" type="password" id="password" />
-
       <button type="submit">Login</button>
     </form>
   </div>
@@ -127,6 +127,10 @@ export default {
 .login-form input:focus{
   border: none;
   outline: none
+}
+
+p{
+  color: #3535357a;
 }
 
 .login-form button {
