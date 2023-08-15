@@ -18,7 +18,7 @@
 import axios from 'axios';
 import { ref } from 'vue';  // imported the ref package from vue package used for references of a value
 import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'; // direct user to dashboard
 import FooterC from './FooterC.vue';
 
 export default {
@@ -61,6 +61,8 @@ export default {
         );
 
         // Create a session ID
+        // no user consent / redirection
+        // ref source: https://developer.themoviedb.org/reference/authentication-how-do-i-generate-a-session-id
         const createSessionResponse = await axios.post(
           `https://api.themoviedb.org/3/authentication/session/new?api_key=9b20927a47ae51d08b26f61dab9b2ce4`,
           {
@@ -73,7 +75,7 @@ export default {
         store.dispatch('updateSessionID', sessionID);
 
         // Redirect to dashboard
-        router.push('/dashboard');
+        router.push('/dashboard');   // direct user to dashboard after login condition is met
       } catch (error) {
         console.error('Login error:', error);
       }

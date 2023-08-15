@@ -30,21 +30,22 @@
 
 <script>
 import LoginNavBar from '@/components/LoginNavBar.vue';
+// ref source: https://vuejs.org/guide/essentials/lifecycle.html (lifecycle hooks)
 // ref source: https://www.youtube.com/watch?v=mrJ-mK8shYQ (error handling)
 export default {
   components: {
     LoginNavBar
   },
-  data() {
+  data() {  // initializes data properties
     return {
-      movie: {},
+      movie: {},    
       userRating: 7,
       reviews: []
     };
   },
-  async created() {
+  async created() {     // fetches movies after component has been created
     try {
-      const movieId = this.$route.params.id;
+      const movieId = this.$route.params.id;  // the "id" parameter value from the route is taken
 
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${movieId}`,
@@ -57,10 +58,10 @@ export default {
         }
       );
 
-      const movieData = await response.json();
+      const movieData = await response.json();    //  convert the response from the url parameter id to JSON
       this.movie = movieData;
     } catch (error) {
-      console.error('Error fetching movie details:', error);
+      console.error('Error fetching the movie details:', error);
     }
   },
   methods: {
