@@ -16,7 +16,7 @@
 <script>
 // ref source: https://www.youtube.com/watch?v=6LyagkoRWYA (axios crash course)
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref } from 'vue';  // imported the ref package from vue package used for references of a value
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import FooterC from './FooterC.vue';
@@ -26,7 +26,7 @@ export default {
     FooterC
   },
   setup() {
-    const username = ref('');
+    const username = ref(''); // NOTE * used ref function to define the properties and create reference to a value of the login form - Refs are a function that use to access the DOM from components
     const password = ref('');
 
     const store = useStore();
@@ -34,7 +34,7 @@ export default {
 
     async function login() {
       try {
-        // Step 1: Obtain a request token
+        // Get a request token
         const requestTokenResponse = await axios.get(
           'https://api.themoviedb.org/3/authentication/token/new',
           {
@@ -45,7 +45,7 @@ export default {
         );
         const requestToken = requestTokenResponse.data.request_token;
 
-        // Step 2: Validate request token with login
+        // Validate the request token with login with the account credentials
         await axios.post(
           'https://api.themoviedb.org/3/authentication/token/validate_with_login',
           {
@@ -60,7 +60,7 @@ export default {
           }
         );
 
-        // Step 3: Create a session ID
+        // Create a session ID
         const createSessionResponse = await axios.post(
           `https://api.themoviedb.org/3/authentication/session/new?api_key=9b20927a47ae51d08b26f61dab9b2ce4`,
           {
@@ -69,7 +69,7 @@ export default {
         );
         const sessionID = createSessionResponse.data.session_id;
 
-        // Update session ID in Vuex store
+        // Update session ID in Vuex store (Mutations)
         store.dispatch('updateSessionID', sessionID);
 
         // Redirect to dashboard
@@ -79,7 +79,7 @@ export default {
       }
     }
 
-    return {
+    return {  // sends the reference values the template to login (submit)
       username,
       password,
       login,
