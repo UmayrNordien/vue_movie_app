@@ -69,7 +69,7 @@ export default {
       if (posterPath) {
         return `https://image.tmdb.org/t/p/w500${posterPath}`;
       }
-      return 'https://via.placeholder.com/500x750.png?text=loading';
+      return 'https://placehold.co/500x750.png?text=l%20o%20a%20d%20i%20n%20g.%20.%20.'; // Use a placeholder image if poster path is not available
     },
     async rateMovie() {
       try {
