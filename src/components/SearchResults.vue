@@ -57,7 +57,7 @@ export default {
   watch: {
     searchQuery: {
       handler: 'fetchSearchResults',
-      immediate: true, // Fetch results immediately when the component is created
+      immediate: true, // Fetch results first when the component is created
     },
   },
 };
