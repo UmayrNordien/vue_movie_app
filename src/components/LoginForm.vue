@@ -14,7 +14,7 @@
 </template>
 
 <script>
-// ref source: https://www.youtube.com/watch?v=6LyagkoRWYA (axios crash course)
+//? ref source: https://www.youtube.com/watch?v=6LyagkoRWYA (axios crash course)
 import axios from 'axios';
 import { ref } from 'vue';  // imported the ref package from vue package used for references of a value
 import { useStore } from 'vuex';
@@ -26,7 +26,8 @@ export default {
     FooterC
   },
   setup() {
-    const username = ref(''); // NOTE * used ref function to define the properties and create reference to a value of the login form - Refs are a function that use to access the DOM from components
+    //* NOTE  used ref function to define the properties and create reference to a value of the login form - Refs are a function that use to access the DOM from components
+    const username = ref(''); 
     const password = ref('');
 
     const store = useStore();
@@ -34,8 +35,7 @@ export default {
 
     async function login() {
       try {
-        // Get a request token
-        const requestTokenResponse = await axios.get(
+        const requestTokenResponse = await axios.get(   // Get a request token
           'https://api.themoviedb.org/3/authentication/token/new',
           {
             params: {
@@ -45,7 +45,7 @@ export default {
         );
         const requestToken = requestTokenResponse.data.request_token;
 
-        // Validate the request token with login with the account credentials
+        //* Validate the request token with login with the account credentials
         await axios.post(
           'https://api.themoviedb.org/3/authentication/token/validate_with_login',
           {
@@ -60,9 +60,9 @@ export default {
           }
         );
 
-        // Create a session ID
+        //* Create a session ID
         // no user consent / redirection
-        // ref source: https://developer.themoviedb.org/reference/authentication-how-do-i-generate-a-session-id
+        //? ref source: https://developer.themoviedb.org/reference/authentication-how-do-i-generate-a-session-id
         const createSessionResponse = await axios.post(
           `https://api.themoviedb.org/3/authentication/session/new?api_key=9b20927a47ae51d08b26f61dab9b2ce4`,
           {
@@ -74,8 +74,8 @@ export default {
         // Update session ID in Vuex store (Mutations)
         store.dispatch('updateSessionID', sessionID);
 
-        // Redirect to dashboard
-        router.push('/dashboard');   // direct user to dashboard after login condition is met
+        // Redirect to dashboard after login condition is met
+        router.push('/dashboard');  
       } catch (error) {
         console.error('Login error:', error);
       }

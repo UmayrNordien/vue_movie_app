@@ -30,8 +30,8 @@
 
 <script>
 import LoginNavBar from '@/components/LoginNavBar.vue';
-// ref source: https://vuejs.org/guide/essentials/lifecycle.html (lifecycle hooks)
-// ref source: https://www.youtube.com/watch?v=mrJ-mK8shYQ (error handling)
+//? ref source: https://vuejs.org/guide/essentials/lifecycle.html (lifecycle hooks)
+//? ref source: https://www.youtube.com/watch?v=mrJ-mK8shYQ (error handling)
 export default {
   components: {
     LoginNavBar
@@ -52,7 +52,7 @@ export default {
         {
           headers: {
             accept: 'application/json',
-            // Authorization: `Bearer ${this.$store.getters.getSessionID}`, //not working
+            // Authorization: `Bearer ${this.$store.getters.getSessionID}`, //!not working
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds'
           }
         }
@@ -82,7 +82,7 @@ export default {
             headers: {
               accept: 'application/json',
               'Content-Type': 'application/json;charset=utf-8',
-              // Authorization: `Bearer ${this.$store.getters.getSessionID}`, // not working
+              // Authorization: `Bearer ${this.$store.getters.getSessionID}`, //! not working
               Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjIwOTI3YTQ3YWU1MWQwOGIyNmY2MWRhYjliMmNlNCIsInN1YiI6IjVjZTI3YjkzYzNhMzY4MTkwNDIyODI1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9EicqaZVVqjhNiopSD-qD_2uuPC9YepXKf-JR_AR9ds'
             },
             body: JSON.stringify({ value: this.userRating })
