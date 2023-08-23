@@ -44,7 +44,8 @@ This ensured the users secure and seamless access to the app.
 ## Vuex Store Configuration 📦
 
 To steer the app's state management, I initiated a Vuex store. 
-I introduced state variables that tracked user authentication status and session information. 
+I introduced state variables that tracked user authentication status \
+Umayrand session information. 
 The mutations and actions were behind the state updates, 
 offering the user interactions with the api.
 
@@ -149,4 +150,4 @@ This adjustment empowered me to facilitate movie ratings using authenticated tok
 
 ## Project Recap 📝
 
-The challenges I encountered, addressed, and the strategic solutions implemented collectively formed the cornerstone of my project. From safeguarding sensitive data to enhancing user authentication and rating mechanisms, each challenge led to a refined and robust application. This process of overcoming challenges epitomizes the iterative nature of development and problem-solving, ultimately contributing to the creation of a functional and user-friendly app.
+The challenges I encountered, addressed, and the solutions implemented collectively formed the project. From safeguarding the movie dashboard to enhancing user authentication and rating posting, each challenge led to a refined application which I definately improve in future. T
