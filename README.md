@@ -81,11 +81,11 @@ In the realm of user experience, I curated a dashboard showcasing rated movies a
 
 ## Movie Details View 🎬
 
-For the discerning moviegoer, I meticulously designed a view dedicated to providing comprehensive movie information. The user's attention was captivated by movie details, user ratings, and an interactive "Rate Me" button. In real-time harmony with the TMDb API, ratings resonated with the latest updates.
+Designed a view dedicated to providing movie information including movie details, user ratings, and an interactive "Rate Me" button. In real-time with the TMDb API.
 
-## Styling and UI 🎨
+## Styling 🎨
 
-By infusing Bootstrap and CSS finesse, I harnessed the power of aesthetics. This diligent styling strategy orchestrated an eye-catching and responsive design, harmonizing the app's appearance across an array of devices.
+By using Bootstrap and CSS via aesthetics and diligent styling but most importantly responsive design, harmonizing the app's appearance across devices.
 
 ## Error Handling ❗
 
@@ -97,7 +97,7 @@ A stringent testing regimen, conducted across a spectrum of browsers and devices
 
 ## Deployment 🚀
 
-The culmination of development led to the deployment of the production version via Vue CLI and Netlify. This pivotal step catapulted the app into the online realm, making it accessible to users worldwide.
+Deployment of via Vue CLI and Netlify. 
 
 ## Final Testing and Documentation 🔎
 
@@ -113,7 +113,7 @@ With the finish line in sight, I dedicated myself to a meticulous code review, e
 
 ## Summary 📝
 
-As each piece of the puzzle fell into place, the app emerged as a fully functional and user-friendly marvel. Guided by meticulous steps, the journey encompassed a range of features, from secure user authentication to intuitive movie search, comprehensive information presentation, and the captivating feature of movie rating.
+Secure user authentication to basic movie search, movie information, and a  movie rating feature .
 
 ----------------------------------
 # Project Challenges and Solutions
@@ -122,32 +122,26 @@ As each piece of the puzzle fell into place, the app emerged as a fully function
 ## Challenges Faced 🛠️
 
 ### 🔑 API Key Management:
-At the project's outset, I encountered a common challenge: directly embedding the API key within the codebase. While it expedited development, this approach exposed the key to security risks. This experience underscored the importance of securing sensitive information. I swiftly adopted environment variables to confidentially manage the API key.
+challenge: directly embedding the API key within the codebase.
+This approach exposed the key.
+This experience underscored the importance of securing sensitive information. 
+I tried to use environment variables to confidentially manage the API key.
 
 ### ⚙️ No Backend:
-Early on, I realized the absence of a backend server could introduce security vulnerabilities, particularly regarding Cross-Origin Resource Sharing (CORS). Recognizing this, I understood the necessity of a backend server. It would act as an intermediary, handling API requests and sensitive data to enhance both security and performance.
+Early on, I realized that no backend server could introduce security vulnerabilities, 
+particularly regarding Cross-Origin Resource Sharing (CORS). 
+It would handle API requests and data.
 
 ### 🔐 External User Authentication Flow using TMDb API:
 Navigating the intricacies of implementing external user authentication through the TMDb API was a significant challenge. Orchestrating callback URLs and token exchanges demanded careful consideration. My journey was marked by gaining a deep understanding of these processes, ensuring users experienced a seamless and secure authentication journey.
 
 ### 🚧 Error Handling:
-Robust error handling emerged as a central challenge. Particularly during critical stages like authentication and session creation, effectively capturing and managing errors was paramount. Instances of unnoticed errors threatened the user experience. This propelled me to refine my error-handling skills, ensuring the app's resilience and reliability.
+During the process of authentication and session creation, managing errors was critical. 
 
 ### 🧩 Complex Vuex Setup:
-Integrating Vuex for authentication and session management introduced complexity. Grappling with the intricacies of store structure, actions, mutations, and getters was a formidable task. While challenging, this orchestration was pivotal for effective data management. The Vuex setup played a pivotal role in ensuring a seamless app experience.
+Integrating Vuex for authentication and session.
+Included Store structure, actions, mutations, and getters
 
-## Navigating to the Core Challenge 🚀
+## My Assessment Recap 📝
 
-My journey led me to a critical challenge involving the use of Vuex getters to access the session_id for movie rating. Initially, I explored a guest session approach for movie rating. However, I recognized its limitations in ensuring authenticated and secure user interactions. This approach posed potential limitations and misuse risks.
-
-Rather than persistently storing the session_id in Vuex and facing issues with getters, which I subsequently commented out when calling them in relevant components, I opted for a more secure and dependable path.
-
-In the MovieDetail.vue component, I took a direct approach by embedding the authentication token in the Authorization header of the API request for movie rating. This strategic decision maintained the user's authentication status throughout the rating process.
-
-This adjustment empowered me to facilitate movie ratings using authenticated tokens, enabling better control over user interactions. While tailored to my project's scope, this shift underscores the criticality of securely managing API keys.
-
-> Note: It's important to highlight that for broader applications, securely managing API keys would be the recommended best practice.
-
-## Project Recap 📝
-
-The challenges I encountered, addressed, and the solutions implemented collectively formed the project. From safeguarding the movie dashboard to enhancing user authentication and rating posting, each challenge led to a refined application which I definately improve in future. T
+The challenges I encountered and the solutions implemented collectively formed the project. From guarding the movie dashboard to  user authentication and rating posting, led to revision regarding http requests using axios. 
