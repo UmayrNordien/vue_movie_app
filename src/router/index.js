@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';  // HTML5 Mode ?ref source: https://router.vuejs.org/guide/essentials/history-mode.html
 //* Components
 import LoginFormView from '@/views/LoginFormView.vue';
 import MovieListView from '@/views/MovieListView.vue';
@@ -22,13 +22,13 @@ const routes = [  // route configurations
     meta: { requiresAuth: true }, // Add a meta field for route guard
   },
   {
-    path: '/movie/:id', // parameter for movie id
+    path: '/movie/:id', // Dynamic parameter for movie id 
     name: 'MovieDetail',
     component: MovieDetailView,
-    props: true,
-  },
+    props: true,  // Applied Routes with named views and dynamic route parameters
+  },              //? ref source https://router.vuejs.org/guide/essentials/passing-props.html
   {
-    path: '/search-results/:query', // parameter for the query
+    path: '/search-results/:query', // Dynamic parameter for the query
     name: 'SearchResultsView',
     component: SearchResultsView,
     props: true, // Pass route params as props to the component
@@ -43,7 +43,7 @@ const routes = [  // route configurations
     name: 'AboutView',
     component: AboutView,
   },
-];
+];  // NOTE* tried adding a catch and callback for incorrect routes to handle 404 errors but got Maximum call stack size exceeded loop error instead
 
 const router = createRouter({   // router instance is created using createRouter
   history: createWebHistory(process.env.BASE_URL),  //  base URL is used as the root path for all your routes
@@ -59,4 +59,6 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
+
+
 
