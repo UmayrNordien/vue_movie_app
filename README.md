@@ -89,7 +89,7 @@ By using Bootstrap and CSS via aesthetics and diligent styling but most importan
 
 ## Error Handling ❗
 
-To confront the unpredictable realm of errors, I fortified the app with robust error handling mechanisms. This safeguard extended its protective wings over the app, ensuring that even in the face of adversities like failed API requests and user input errors, the user experience remained unscathed.
+Made use of try catch error handlingv for failed API requests and user input errors
 
 ## Testing and Debugging 🔧
 
